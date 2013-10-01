@@ -1,0 +1,11 @@
+[Unit]
+Description=Archlogo
+DefaultDependencies=no
+Before=sysinit.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+StandardOutput=tty
+EnvironmentFile=/etc/archlogo.conf
+ExecStart=/usr/bin/cat "/usr/share/archlogo/${ARCHLOGO}"
