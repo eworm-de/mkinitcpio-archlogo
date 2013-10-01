@@ -8,4 +8,5 @@ Type=oneshot
 RemainAfterExit=yes
 StandardOutput=tty
 EnvironmentFile=/etc/archlogo.conf
-ExecStart=/usr/bin/cat "/usr/share/archlogo/${ARCHLOGO}"
+WorkingDirectory=/usr/share/archlogo
+ExecStart=/usr/bin/cat "${ARCHLOGO}"
