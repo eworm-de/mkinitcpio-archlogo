@@ -4,7 +4,7 @@ build() {
 	source /etc/archlogo.conf
 	add_file /etc/archlogo.conf
 	add_file "/usr/share/archlogo/${ARCHLOGO}"
-	if [ add_systemd_unit archlogo.service 2>/dev/null ]; then
+	if add_systemd_unit archlogo.service 2>/dev/null; then
 		add_symlink "/usr/lib/systemd/system/sysinit.target.wants/archlogo.service" "../archlogo.service"
 	else
 		add_runscript
