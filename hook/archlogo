@@ -1,0 +1,6 @@
+#!/bin/sh
+
+run_earlyhook() {
+	source /etc/archlogo.conf
+	cat "/usr/share/archlogo/${ARCHLOGO}"
+}
