@@ -2,5 +2,6 @@
 
 run_earlyhook() {
 	source /etc/archlogo.conf
-	cat "/usr/share/archlogo/${ARCHLOGO}"
+	cd /usr/share/archlogo/
+	cat "${ARCHLOGO}"
 }
