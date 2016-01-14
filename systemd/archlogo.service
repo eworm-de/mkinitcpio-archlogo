@@ -1,7 +1,7 @@
 [Unit]
 Description=Archlogo
 DefaultDependencies=no
-Before=sysinit.target
+Before=sysinit.target systemd-ask-password-console.service
 
 [Service]
 Type=oneshot
