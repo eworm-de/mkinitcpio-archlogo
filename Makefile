@@ -1,8 +1,11 @@
 # Makefile for mkinitcpio-archlogo
 
+VERSION=0.2.0
+
 all:
 	@echo "Just run make install..."
 
+.PHONY: install
 install:
 	# install install script and unit file
 	install -D -m0644 install/archlogo $(DESTDIR)/usr/lib/initcpio/install/archlogo
@@ -19,4 +22,7 @@ install:
 	install -D -m0644 share/archlogo2 $(DESTDIR)/usr/share/archlogo/archlogo2
 	install -D -m0644 share/archlogo3 $(DESTDIR)/usr/share/archlogo/archlogo3
 
-.PHONY: install
+release:
+	git archive --format=tar.xz --prefix=mkinitcpio-archlogo-$(VERSION)/ $(VERSION) > mkinitcpio-archlogo-$(VERSION).tar.xz
+	gpg -ab mkinitcpio-archlogo-$(VERSION).tar.xz
+	git notes --ref=refs/notes/signatures/tar add -C $$(git archive --format=tar --prefix=mkinitcpio-archlogo-$(VERSION)/ $(VERSION) | gpg --armor --detach-sign | git hash-object -w --stdin) $(VERSION)
