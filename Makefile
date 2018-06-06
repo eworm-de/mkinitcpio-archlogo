@@ -1,6 +1,6 @@
 # Makefile for mkinitcpio-archlogo
 
-VERSION=0.2.0
+VERSION=0.3.0
 
 all:
 	@echo "Just run make install..."
