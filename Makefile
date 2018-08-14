@@ -24,5 +24,5 @@ install:
 
 release:
 	git archive --format=tar.xz --prefix=mkinitcpio-archlogo-$(VERSION)/ $(VERSION) > mkinitcpio-archlogo-$(VERSION).tar.xz
-	gpg -ab mkinitcpio-archlogo-$(VERSION).tar.xz
-	git notes --ref=refs/notes/signatures/tar add -C $$(git archive --format=tar --prefix=mkinitcpio-archlogo-$(VERSION)/ $(VERSION) | gpg --armor --detach-sign | git hash-object -w --stdin) $(VERSION)
+	gpg --armor --detach-sign --comment mkinitcpio-archlogo-$(VERSION).tar.xz mkinitcpio-archlogo-$(VERSION).tar.xz
+	git notes --ref=refs/notes/signatures/tar add -C $$(git archive --format=tar --prefix=mkinitcpio-archlogo-$(VERSION)/ $(VERSION) | gpg --armor --detach-sign --comment mkinitcpio-archlogo-$(VERSION).tar | git hash-object -w --stdin) $(VERSION)
