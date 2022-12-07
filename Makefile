@@ -7,11 +7,11 @@ all:
 
 .PHONY: install
 install:
-	# install install script and unit file
-	install -D -m0644 install/archlogo $(DESTDIR)/usr/lib/initcpio/install/archlogo
+	# install unit file
 	install -D -m0644 systemd/archlogo.service $(DESTDIR)/usr/lib/systemd/system/archlogo.service
 
-	# install hook for plain old script based initramfs
+	# install install-script and hook for plain old script based initramfs
+	install -D -m0644 install/archlogo $(DESTDIR)/usr/lib/initcpio/install/archlogo
 	install -D -m0755 hook/archlogo $(DESTDIR)/usr/lib/initcpio/hooks/archlogo
 
 	# install config
