@@ -7,7 +7,8 @@ all:
 
 .PHONY: install
 install:
-	# install unit file
+	# install script and unit file
+	install -D -m0755 systemd/archlogo $(DESTDIR)/usr/lib/systemd/scripts/archlogo
 	install -D -m0644 systemd/archlogo.service $(DESTDIR)/usr/lib/systemd/system/archlogo.service
 
 	# install install-script and hook for plain old script based initramfs

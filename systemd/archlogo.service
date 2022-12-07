@@ -7,6 +7,4 @@ Before=sysinit.target systemd-ask-password-console.service
 Type=oneshot
 RemainAfterExit=yes
 StandardOutput=tty
-EnvironmentFile=/etc/archlogo.conf
-WorkingDirectory=/usr/share/archlogo
-ExecStart=/usr/bin/cat "${ARCHLOGO}"
+ExecStart=/usr/lib/systemd/scripts/archlogo

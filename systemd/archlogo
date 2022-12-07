@@ -1,0 +1,4 @@
+#!/bin/sh
+
+source /etc/archlogo.conf
+cat /usr/share/archlogo/"${ARCHLOGO}"
